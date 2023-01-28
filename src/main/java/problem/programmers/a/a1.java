@@ -1,0 +1,28 @@
+package problem.programmers.a;
+
+import java.util.HashSet;
+
+/**
+ * PackageName : problem.programmers.a
+ * Author : Mo-Greene
+ * Date : 2023/01/28
+ * Description :
+ */
+class Solution1 {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] arr = new int[arr1.length][arr1[0].length];
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                arr[i][j]= arr1[i][j] + arr2[i][j];
+            }
+        }
+
+        return arr;
+    }
+}
+public class a1 {
+    public static void main(String[] args) {
+        Solution1[] s = new Solution1[2];
+    }
+}
+
