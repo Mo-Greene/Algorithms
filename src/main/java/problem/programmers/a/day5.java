@@ -51,5 +51,5 @@ class Solution5_4 {
     }
 }
 
-public class day4 {
+public class day5 {
 }
