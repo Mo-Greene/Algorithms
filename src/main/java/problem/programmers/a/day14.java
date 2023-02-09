@@ -12,11 +12,19 @@ import java.util.stream.Stream;
 class Solution14_1 {
     public static void main(String[] args) {
         Solution14_1 solution14_1 = new Solution14_1();
-        int[] array = {1, 4, 8};
-        System.out.println(solution14_1.solution(array, 6));
+        int[] array = {3, 10, 28};
+        System.out.println(solution14_1.solution(array, 20));
     }
     public int solution(int[] array, int n) {
+        Arrays.sort(array);
         int answer = 0;
+        int sum = n + 100;
+        for (int i = 0; i < array.length; i++) {
+            if (Math.abs(array[i] - n) < sum) {
+                sum = Math.abs(array[i] - n);
+                answer = array[i];
+            }
+        }
         return answer;
     }
 }
