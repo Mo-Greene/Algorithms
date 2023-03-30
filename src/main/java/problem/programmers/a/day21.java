@@ -1,7 +1,6 @@
 package problem.programmers.a;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class Solution21_1 {
@@ -70,6 +69,35 @@ class Solution21_2 {
             }
         }
 
+        return answer;
+    }
+}
+
+class Solution21_4 {
+    public static void main(String[] args) {
+        String[] spell = {"z", "d", "x"};
+        String[] dic = {"def", "dww", "dzx", "loveaw"};
+
+        Solution21_4 solution21_4 = new Solution21_4();
+        System.out.println(solution21_4.solution(spell, dic));
+    }
+    public int solution(String[] spell, String[] dic) {
+        int answer = 0;
+        for (int i = 0; i < dic.length; i++) {
+            int count = 0;
+            for (int j = 0; j < spell.length; j++) {
+                if (dic[i].contains(spell[j])) {
+                    count++;
+                }
+
+                if (count == spell.length) {
+                    answer = 1;
+                    return answer;
+                } else {
+                    answer = 2;
+                }
+            }
+        }
         return answer;
     }
 }

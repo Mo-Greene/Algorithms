@@ -90,11 +90,49 @@ class Solution20_3 {
 class Solution20_4 {
     public static void main(String[] args) {
         Solution20_4 solution20_4 = new Solution20_4();
-        System.out.println(solution20_4.solution("3x + 7 + x"));
+        System.out.println(solution20_4.solution("x + x + x"));
     }
     public String solution(String polynomial) {
         String answer = "";
 
+        int num = 0;
+        int xNum = 0;
+        //받은 문자열을 공백 기준으로 잘라서 배열로 저장
+        String[] arr = polynomial.split(" ");
+
+        for (String str : arr) {
+            //배열을 돌며 단일항이 x 경우
+           if (str.equals("x")) {
+                xNum += 1;
+                //배열을 돌며 x가 포함되어있을시 그 배열의 첫번째 숫자를 잘라서 더함
+            } else if (str.contains("x")) {
+                xNum += Integer.parseInt(str.substring(0, str.length() - 1));
+                //만약 단일항이 + 가 아닌 숫자일 경우
+            } else if (!str.equals("+")) {
+               num += Integer.parseInt(str);
+            }
+        }
+
+        //x가 없고 숫자항이 존재할때
+        if (xNum == 0 && num != 0) {
+            answer = String.valueOf(num);
+        }
+        //x항만 존재하고 숫자항이 없을때
+        if (xNum != 0 && num == 0) {
+            if (xNum == 1) {
+                answer = "x";
+            } else {
+                answer = xNum + "x";
+            }
+        }
+        //둘다 존재 할때
+        if (xNum != 0 && num != 0) {
+            if (xNum == 1) {
+                answer = "x + " + num;
+            } else {
+                answer = xNum + "x + " + num;
+            }
+        }
         return answer;
     }
 }

@@ -40,3 +40,19 @@ class pr1157 {
         System.out.println(result);
     }
 }
+
+class pr1543 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String exStr = sc.nextLine();
+        String mainStr = sc.nextLine();
+
+        int count = 0;
+        for (int i = 0; i < exStr.length(); i++) {
+            if (exStr.contains(mainStr)) {
+                count++;
+            }
+        }
+
+    }
+}
