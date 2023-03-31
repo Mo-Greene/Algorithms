@@ -1,6 +1,7 @@
 package problem.programmers.a;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Solution21_1 {
@@ -36,39 +37,68 @@ class Solution21_2 {
     }
     public int solution(int[][] board) {
         int answer = 0;
-        boolean[][] arr = new boolean[board.length][board.length];
+
+        int[][] bomb = new int[board.length][board[0].length];
+
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board.length; j++) {
+            for (int j = 0; j < board[0].length; j++) {
+
                 if (board[i][j] == 1) {
-                    arr[i][j] = true;
-                }
-            }
-        }
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[i][j]) {
-                    if (i > 0 && i < arr.length - 1 || j > 0 && j < arr.length - 1) {
-                        arr[i - 1][j + 1] = true;
-                        arr[i][j + 1] = true;
-                        arr[i + 1][j + 1] = true;
-                        arr[i - 1][j] = true;
-                        arr[i + 1][j] = true;
-                        arr[i - 1][j - 1] = true;
-                        arr[i][j - 1] = true;
-                        arr[i + 1][j - 1] = true;
-                    }
+
+                    explosion(i, j, bomb);
                 }
             }
         }
 
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1; j++) {
-                if (arr[i][j]) {
+        for (int i = 0; i < bomb.length; i++) {
+            for (int j = 0; j < bomb[0].length; j++) {
+                if (bomb[i][j] == 0) {
                     answer++;
                 }
             }
         }
+        return answer;
+    }
 
+    private void explosion(int i, int j, int[][] bomb) {
+        int xx = bomb.length;   //5
+        int yy = bomb[0].length;    //5
+
+        bomb[i][j] = 1;
+        if (i > 0) bomb[i - 1][j] = 1;
+        if (i < xx - 1) bomb[i + 1][j] = 1;
+        if (j > 0) bomb[i][j - 1] = 1;
+        if (j < yy - 1) bomb[i][j + 1] = 1;
+        if (i > 0 && j > 0) bomb[i - 1][j - 1] = 1;
+        if (i < xx - 1 && j > 0) bomb[i + 1][j - 1] = 1;
+        if (i > 0 && j < yy - 1) bomb[i - 1][j + 1] = 1;
+        if (i < xx - 1 && j < yy - 1) bomb[i + 1][j + 1] = 1;
+
+    }
+}
+
+class Solution21_3 {
+    public static void main(String[] args) {
+        Solution21_3 solution21_3 = new Solution21_3();
+        int[] sides = {11, 7};
+        System.out.println(solution21_3.solution(sides));
+    }
+
+    public int solution(int[] sides) {
+        int answer = 0;
+        int max = 0;
+        int min = 0;
+
+        //주어진 값의 최대값 최소값 판별
+        if (sides[0] > sides[1]) {
+            max = sides[0];
+            min = sides[1];
+        } else {
+            max = sides[1];
+            min = sides[0];
+        }
+
+        answer = (max + min) - (max - min) - 1;
         return answer;
     }
 }
