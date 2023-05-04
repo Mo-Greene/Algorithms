@@ -1,5 +1,6 @@
 package problem.programmers.level2;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class Solution {
@@ -35,7 +36,9 @@ class Solution2 {
         String n = "3people Unfollowed Me";
         String a = "hello  world";
         String h = "a aA";
-        System.out.println(solution2.solution(h));
+        String g = " aa aA";
+        System.out.println(solution2.solution2(g));
+
     }
 
     public String solution(String s) {
@@ -59,6 +62,19 @@ class Solution2 {
         }
 
         return sb.toString();
+    }
+
+    public String solution2(String s) {
+        String answer = "";
+        String[] str = s.toLowerCase().split(" ");
+        System.out.println(Arrays.toString(str));
+        boolean flag = true;
+
+        for (String ss : str) {
+            answer += flag ? ss.toUpperCase() : ss;
+            flag = ss.equals(" ");
+        }
+        return answer;
     }
 }
 
