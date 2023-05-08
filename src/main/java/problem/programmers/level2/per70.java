@@ -1,6 +1,6 @@
 package problem.programmers.level2;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.StringTokenizer;
 
 class Solution {
@@ -74,6 +74,52 @@ class Solution2 {
             answer += flag ? ss.toUpperCase() : ss;
             flag = ss.equals(" ");
         }
+        return answer;
+    }
+}
+
+class Solution3 {
+    public static void main(String[] args) {
+        Solution3 solution3 = new Solution3();
+        int[] A = {1, 2};
+        int[] B = {3, 4};
+        System.out.println(solution3.solution(A, B));
+    }
+    public int solution(int[] A, int[] B) {
+        int answer = 0;
+
+        Arrays.sort(A);
+        Arrays.sort(B);
+        for (int i = 0; i < B.length / 2; i++) {
+            int temp = B[i];
+            B[i] = B[B.length - i - 1];
+            B[B.length - i - 1] = temp;
+        }
+
+        for (int i = 0; i < A.length; i++) {
+            answer += A[i] * B[i];
+        }
+
+        return answer;
+    }
+}
+
+class Solution4 {
+    public static void main(String[] args) {
+        Solution4 solution4 = new Solution4();
+        String s = ")()(";
+        System.out.println(solution4.solution(s));
+    }
+    boolean solution(String s) {
+        boolean answer = false;
+
+        String start = "(";
+        String end = ")";
+
+        if (s.startsWith(start) && s.endsWith(end)) {
+            answer = true;
+        }
+
         return answer;
     }
 }
