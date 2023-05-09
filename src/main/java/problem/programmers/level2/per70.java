@@ -107,20 +107,31 @@ class Solution3 {
 class Solution4 {
     public static void main(String[] args) {
         Solution4 solution4 = new Solution4();
-        String s = ")()(";
+        String s = ")())(()";
         System.out.println(solution4.solution(s));
     }
     boolean solution(String s) {
-        boolean answer = false;
-
-        String start = "(";
-        String end = ")";
-
-        if (s.startsWith(start) && s.endsWith(end)) {
-            answer = true;
+        if (s.charAt(0) == ')') {
+            return false;
         }
 
-        return answer;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                stack.push(c);
+            } else {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            }
+        }
+
+        if (stack.size() > 0) {
+            return false;
+        }
+
+        return true;
     }
 }
 
