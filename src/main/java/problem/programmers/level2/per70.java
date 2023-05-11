@@ -135,5 +135,45 @@ class Solution4 {
     }
 }
 
+class Solution5 {
+    public static void main(String[] args) {
+        Solution5 solution5 = new Solution5();
+        String s = "110010101001";
+        System.out.println("result! : " + Arrays.toString(solution5.solution(s)));
+    }
+    public int[] solution(String s) {
+
+        int calcCount = 0;
+        int zeroCount = 0;
+
+        return binaryCalc(s, calcCount, zeroCount);
+    }
+
+    private int[] binaryCalc(String s, int calcCount, int zeroCount) {
+
+        int[] result = {};
+
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '0') {
+                zeroCount++;
+            }
+        }
+
+        String replaceStr = s.replace("0","");
+        int length = replaceStr.length();
+        String binaryString = Integer.toBinaryString(length);
+
+        calcCount += 1;
+
+        if (binaryString.equals("1")) {
+            result = new int[]{calcCount, zeroCount};
+            return result;
+        }
+
+        return binaryCalc(binaryString, calcCount, zeroCount);
+    }
+}
+
 public class per70 {
 }
