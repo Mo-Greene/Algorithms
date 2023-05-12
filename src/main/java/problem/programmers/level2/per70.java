@@ -175,5 +175,37 @@ class Solution5 {
     }
 }
 
+class Solution6 {
+    public static void main(String[] args) {
+        Solution6 solution6 = new Solution6();
+        int n = 15;
+        System.out.println(solution6.solution(n));
+    }
+    public int solution(int n) {
+        int count = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (sequence(i, n)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private boolean sequence(int i, int n) {
+        int sum = 0;
+        for (int j = i; j <= n; j++) {
+            sum += j;
+            if (sum == n) {
+                return true;
+            } else if (sum > n) {
+                return false;
+            }
+        }
+        return false;
+    }
+}
+
 public class per70 {
 }
