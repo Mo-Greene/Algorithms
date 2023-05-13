@@ -207,5 +207,32 @@ class Solution6 {
     }
 }
 
+class Solution7 {
+    public static void main(String[] args) {
+        Solution7 solution7 = new Solution7();
+        int n = 15;
+        System.out.println(solution7.solution(n));
+    }
+    public int solution(int n) {
+
+        int count;
+        int bitCnt = Integer.bitCount(n);
+
+        count = checkBit(bitCnt, n + 1);
+        return count;
+    }
+
+    private int checkBit(int bitCnt, int n) {
+        while (n <= 1000000) {
+            if (bitCnt != Integer.bitCount(n)) {
+                n++;
+            } else {
+                break;
+            }
+        }
+        return n;
+    }
+}
+
 public class per70 {
 }
