@@ -234,5 +234,24 @@ class Solution7 {
     }
 }
 
+class Solution8 {
+    public static void main(String[] args) {
+        Solution8 solution8 = new Solution8();
+        int n = 100000;
+        System.out.println(solution8.solution(n));
+    }
+    public int solution(int n) {
+        int[] cache = new int[n + 1];
+        cache[0] = 0;
+        cache[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            cache[i] = cache[i - 1] + cache[i - 2];
+            cache[i] %= 1234567;
+        }
+        return cache[n];
+    }
+}
+
 public class per70 {
 }
