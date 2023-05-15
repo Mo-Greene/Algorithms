@@ -253,5 +253,27 @@ class Solution8 {
     }
 }
 
+class Solution9 {
+    public static void main(String[] args) {
+        Solution9 solution9 = new Solution9();
+        String s = "baabaa";
+        System.out.println(solution9.solution(s));
+    }
+    public int solution(String s) {
+
+        char[] chars = s.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < chars.length; i++) {
+            if (!stack.isEmpty() && stack.peek() == chars[i]) {
+                stack.pop();
+            } else {
+                stack.push(chars[i]);
+            }
+        }
+
+        return stack.isEmpty() ? 1 : 0;
+    }
+}
+
 public class per70 {
 }
