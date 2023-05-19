@@ -275,5 +275,19 @@ class Solution9 {
     }
 }
 
+class Solution10 {
+    public static void main(String[] args) {
+        Solution10 solution10 = new Solution10();
+        int n = 5;
+        String[] words = {"hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"};
+        System.out.println(Arrays.toString(solution10.solution(n, words)));
+    }
+    public int[] solution(int n, String[] words) {
+        int[] answer = new int[2];
+
+        return answer;
+    }
+}
+
 public class per70 {
 }
