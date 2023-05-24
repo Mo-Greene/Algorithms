@@ -377,5 +377,39 @@ class Solution17 {
     }
 }
 
+class Solution18 {
+    public static void main(String[] args) {
+        Solution18 solution18 = new Solution18();
+        int[] arr = {4,3,1,2};
+        System.out.println(Arrays.toString(solution18.solution(arr)));
+    }
+    public int[] solution(int[] arr) {
+        if (arr.length == 1) {
+            return new int[]{-1};
+        }
+
+        List<Integer> arrList = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            arrList.add(arr[i]);
+        }
+
+        int min = arrList.get(0);
+        int index = 0;
+        for (int i = 0; i < arrList.size(); i++) {
+            if (min > arrList.get(i)) {
+                min = arrList.get(i);
+                index = i;
+            }
+        }
+        arrList.remove(index);
+        int[] answer = new int[arrList.size()];
+        for (int i = 0; i < arrList.size(); i++) {
+            answer[i] = arrList.get(i);
+        }
+
+        return answer;
+    }
+}
+
 public class page1 {
 }
