@@ -125,5 +125,49 @@ class Solution23 {
     }
 }
 
+class Solution24 {
+    public static void main(String[] args) {
+        Solution24 solution24 = new Solution24();
+        int price = 3;
+        int money = 20;
+        int count = 4;
+        System.out.println(solution24.solution(price,money,count));
+    }
+    public long solution(int price, int money, int count) {
+        long answer;
+        long sum = 0;
+        for (int i = 1; i <= count; i++) {
+            sum += (long) price * i;
+        }
+        if (money - sum > 0) {
+            return 0;
+        }
+        answer = Math.abs(money - sum);
+
+        return answer;
+    }
+}
+
+class Solution25 {
+    public static void main(String[] args) {
+        Solution25 solution25 = new Solution25();
+        String s = "a234";
+        System.out.println(solution25.solution(s));
+    }
+    public boolean solution(String s) {
+        boolean answer = true;
+        if (s.length() != 4 && s.length() != 6) {
+            answer = false;
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) > 57 || s.charAt(i) < 48) {
+                answer = false;
+            }
+        }
+        return answer;
+    }
+}
+
 public class page2 {
 }
