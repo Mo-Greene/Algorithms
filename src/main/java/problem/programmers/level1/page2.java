@@ -1,6 +1,7 @@
 package problem.programmers.level1;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 class Solution19 {
     public static void main(String[] args) {
@@ -166,6 +167,85 @@ class Solution25 {
             }
         }
         return answer;
+    }
+}
+
+class Solution26 {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 3;
+
+        for (int i = 0; i < b; i++) {
+            for (int j = 0; j < a; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+class Solution27 {
+    public static void main(String[] args) {
+        Solution27 solution27 = new Solution27();
+        int[] arr = {1,1,3,3,0,1,1};
+        System.out.println(Arrays.toString(solution27.solution(arr)));
+    }
+    public int[] solution(int[] arr) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (stack.isEmpty()) {
+                stack.push(arr[i]);
+            } else {
+                if (stack.peek() != arr[i]) {
+                    stack.push(arr[i]);
+                }
+            }
+        }
+
+        int[] answer = new int[stack.size()];
+        for (int i = 0; i < stack.size(); i++) {
+            answer[i] = stack.get(i);
+        }
+
+        return answer;
+    }
+}
+
+class Solution28 {
+    public static void main(String[] args) {
+        Solution28 solution28 = new Solution28();
+        int n = 3;
+        int m = 12;
+        System.out.println(Arrays.toString(solution28.solution(n, m)));
+    }
+    public int[] solution(int n, int m) {
+        int[] answer = new int[2];
+
+        //최대공약수
+        answer[0] = divisor(n, m);
+
+        //최소공배수
+        answer[1] = multiple(n, m, answer[0]);
+
+        return answer;
+    }
+
+    private int divisor(int n, int m) {
+        int result = 0;
+
+        for (int i = 1; i <= n && i <= m; i++) {
+            if (n % i == 0 && m % i == 0) {
+                result = i;
+            }
+        }
+        return result;
+    }
+
+    private int multiple(int n, int m, int divisor) {
+
+        return (n * m) / divisor;
     }
 }
 
