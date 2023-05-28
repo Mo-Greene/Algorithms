@@ -249,5 +249,52 @@ class Solution28 {
     }
 }
 
+class Solution29 {
+    public static void main(String[] args) {
+        Solution29 solution29 = new Solution29();
+        int n = 45;
+        System.out.println(solution29.solution(n));
+    }
+    public int solution(int n) {
+        int answer = 0;
+        String conversion = Integer.toString(n, 3);
+        StringBuilder sb = new StringBuilder(conversion);
+        String changeThree = String.valueOf(sb.reverse());
+        answer = Integer.parseInt(changeThree, 3);
+
+        return answer;
+    }
+}
+
+class Solution30 {
+    public static void main(String[] args) {
+        Solution30 solution30 = new Solution30();
+        String s = "trY hEllo woRld";
+        System.out.println(solution30.solution(s));
+    }
+    public String solution(String s) {
+        StringBuilder answer = new StringBuilder();
+        String sLower = s.toLowerCase();
+
+        String[] arrs = sLower.split("");
+
+        boolean upper = true;
+        for (String arr : arrs) {
+            if (upper) {
+                answer.append(arr.toUpperCase());
+            } else {
+                answer.append(arr);
+            }
+
+            upper = !upper;
+            if (arr.equals(" ")) {
+                upper = true;
+            }
+        }
+
+        return answer.toString();
+    }
+}
+
 public class page2 {
 }
