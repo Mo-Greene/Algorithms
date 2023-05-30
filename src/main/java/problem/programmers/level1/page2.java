@@ -296,5 +296,84 @@ class Solution30 {
     }
 }
 
+class Solution31 {
+    public static void main(String[] args) {
+        Solution31 solution31 = new Solution31();
+        int[] d = {1,3,2,5,4};
+        int budget = 9;
+        System.out.println(solution31.solution(d, budget));
+    }
+    public int solution(int[] d, int budget) {
+        int answer = 0;
+        int sum = 0;
+
+        Arrays.sort(d);
+        for (int i = 0; i < d.length; i++) {
+            sum += d[i];
+
+            if (sum == budget) {
+                answer++;
+                break;
+            }
+            if (sum > budget) {
+                break;
+            }
+            answer++;
+        }
+        return answer;
+    }
+}
+
+class Solution32 {
+    public static void main(String[] args) {
+        Solution32 solution32 = new Solution32();
+        String s = "a B z";
+        int n = 25;
+        System.out.println(solution32.solution(s, n));
+    }
+    public String solution(String s, int n) {
+
+        StringBuilder answer = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 32) {
+                answer.append(s.charAt(i));
+                continue;
+            }
+
+            if (s.charAt(i) > 64 && s.charAt(i) < 91) {
+                answer.append(upperLower(s.charAt(i), n, "upper"));
+            }
+
+            if (s.charAt(i) > 96 && s.charAt(i) < 123) {
+                answer.append(upperLower(s.charAt(i), n, "lower"));
+            }
+        }
+
+        return answer.toString();
+    }
+
+    private char upperLower(char c, int n, String upperLower) {
+        char result = (char) (c + n);
+
+        switch (upperLower) {
+            case "upper" :
+                if (result >= 91) {
+                    int sum = result - 90;
+                    result = (char) (64 + sum);
+                }
+                break;
+
+            case "lower":
+                if (result >= 123) {
+                    int sum = result - 122;
+                    result = (char) (96 + sum);
+                }
+        }
+
+        return result;
+    }
+}
+
 public class page2 {
 }
