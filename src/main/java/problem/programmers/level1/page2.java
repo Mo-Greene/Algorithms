@@ -1,6 +1,7 @@
 package problem.programmers.level1;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Stack;
 
 class Solution19 {
@@ -372,6 +373,40 @@ class Solution32 {
         }
 
         return result;
+    }
+}
+
+class Solution33 {
+    public static void main(String[] args) {
+        Solution33 solution33 = new Solution33();
+        int[][] sizes = {{14, 4}, {19, 6}, {6, 16}, {18, 7}, {7, 11}};
+        System.out.println(solution33.solution(sizes));
+    }
+    public int solution(int[][] sizes) {
+
+        for (int i = 0; i < sizes.length; i++) {
+            int max = sizes[i][0];
+            if (sizes[i][0] < sizes[i][1]) {
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = max;
+            }
+        }
+
+        int bigMax = sizes[0][0];
+        for (int i = 0; i < sizes.length; i++) {
+            if (bigMax < sizes[i][0]) {
+                bigMax = sizes[i][0];
+            }
+        }
+
+        int smallMax = sizes[0][1];
+        for (int i = 0; i < sizes.length; i++) {
+            if (smallMax < sizes[i][1]) {
+                smallMax = sizes[i][1];
+            }
+        }
+
+        return bigMax * smallMax;
     }
 }
 
