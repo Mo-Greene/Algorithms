@@ -1,7 +1,6 @@
 package problem.programmers.level1;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Stack;
 
 class Solution19 {
@@ -407,6 +406,60 @@ class Solution33 {
         }
 
         return bigMax * smallMax;
+    }
+}
+
+class Solution34 {
+    public static void main(String[] args) {
+        Solution34 solution34 = new Solution34();
+        String t = "500220839878";
+        String p = "7";
+        System.out.println(solution34.solution(t, p));
+    }
+    public int solution(String t, String p) {
+        int answer = 0;
+        int length = t.length() - p.length() + 1;
+        long[] arr = new long[length];
+
+        for (int i = 0; i < length; i++) {
+            arr[i] = Long.parseLong(t.substring(i, i + p.length()));
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= Long.parseLong(p)) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+}
+
+class Solution35 {
+    public static void main(String[] args) {
+        Solution35 solution35 = new Solution35();
+        int n = 5;
+        int[] arr1 = {9, 20, 28, 18, 11};
+        int[] arr2 = {30, 1, 21, 17, 28};
+        System.out.println(Arrays.toString(solution35.solution(n, arr1, arr2)));
+    }
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+        String[] answer = {};
+        boolean[][] result = new boolean[n][n];
+
+        int[] map1 = makeBinaryMap(arr1);
+        int[] map2 = makeBinaryMap(arr2);
+
+
+        return answer;
+    }
+
+    private int[] makeBinaryMap(int[] arr) {
+        int[] result = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = Integer.parseInt(Integer.toBinaryString(arr[i]));
+        }
+
+        return result;
     }
 }
 
