@@ -9,6 +9,7 @@ class Solution19 {
         String s = "qwerty";
         System.out.println(solution19.solution(s));
     }
+
     public String solution(String s) {
         String answer = "";
         if (s.length() % 2 == 0) {
@@ -26,6 +27,7 @@ class Solution20 {
         int n = 4;
         System.out.println(solution20.solution(n));
     }
+
     public String solution(int n) {
         String answer = "";
 
@@ -55,10 +57,11 @@ class Solution20 {
 class Solution21 {
     public static void main(String[] args) {
         Solution21 solution21 = new Solution21();
-        int[] a = {1,2,3,4};
-        int[] b = {-3,-1,0,2};
+        int[] a = {1, 2, 3, 4};
+        int[] b = {-3, -1, 0, 2};
         System.out.println(solution21.solution(a, b));
     }
+
     public int solution(int[] a, int[] b) {
         int answer = 0;
         int[] arr = new int[a.length];
@@ -79,6 +82,7 @@ class Solution22 {
         String s = "Zbcdefg";
         System.out.println(solution22.solution(s));
     }
+
     public String solution(String s) {
         String answer = "";
         StringBuilder sb = new StringBuilder();
@@ -103,6 +107,7 @@ class Solution23 {
         int right = 27;
         System.out.println(solution23.solution(left, right));
     }
+
     public int solution(int left, int right) {
         int answer = 0;
 
@@ -132,8 +137,9 @@ class Solution24 {
         int price = 3;
         int money = 20;
         int count = 4;
-        System.out.println(solution24.solution(price,money,count));
+        System.out.println(solution24.solution(price, money, count));
     }
+
     public long solution(int price, int money, int count) {
         long answer;
         long sum = 0;
@@ -155,6 +161,7 @@ class Solution25 {
         String s = "a234";
         System.out.println(solution25.solution(s));
     }
+
     public boolean solution(String s) {
         boolean answer = true;
         if (s.length() != 4 && s.length() != 6) {
@@ -187,9 +194,10 @@ class Solution26 {
 class Solution27 {
     public static void main(String[] args) {
         Solution27 solution27 = new Solution27();
-        int[] arr = {1,1,3,3,0,1,1};
+        int[] arr = {1, 1, 3, 3, 0, 1, 1};
         System.out.println(Arrays.toString(solution27.solution(arr)));
     }
+
     public int[] solution(int[] arr) {
 
         Stack<Integer> stack = new Stack<>();
@@ -220,6 +228,7 @@ class Solution28 {
         int m = 12;
         System.out.println(Arrays.toString(solution28.solution(n, m)));
     }
+
     public int[] solution(int n, int m) {
         int[] answer = new int[2];
 
@@ -255,6 +264,7 @@ class Solution29 {
         int n = 45;
         System.out.println(solution29.solution(n));
     }
+
     public int solution(int n) {
         int answer = 0;
         String conversion = Integer.toString(n, 3);
@@ -272,6 +282,7 @@ class Solution30 {
         String s = "trY hEllo woRld";
         System.out.println(solution30.solution(s));
     }
+
     public String solution(String s) {
         StringBuilder answer = new StringBuilder();
         String sLower = s.toLowerCase();
@@ -299,10 +310,11 @@ class Solution30 {
 class Solution31 {
     public static void main(String[] args) {
         Solution31 solution31 = new Solution31();
-        int[] d = {1,3,2,5,4};
+        int[] d = {1, 3, 2, 5, 4};
         int budget = 9;
         System.out.println(solution31.solution(d, budget));
     }
+
     public int solution(int[] d, int budget) {
         int answer = 0;
         int sum = 0;
@@ -331,6 +343,7 @@ class Solution32 {
         int n = 25;
         System.out.println(solution32.solution(s, n));
     }
+
     public String solution(String s, int n) {
 
         StringBuilder answer = new StringBuilder();
@@ -357,7 +370,7 @@ class Solution32 {
         char result = (char) (c + n);
 
         switch (upperLower) {
-            case "upper" :
+            case "upper":
                 if (result >= 91) {
                     int sum = result - 90;
                     result = (char) (64 + sum);
@@ -381,6 +394,7 @@ class Solution33 {
         int[][] sizes = {{14, 4}, {19, 6}, {6, 16}, {18, 7}, {7, 11}};
         System.out.println(solution33.solution(sizes));
     }
+
     public int solution(int[][] sizes) {
 
         for (int i = 0; i < sizes.length; i++) {
@@ -416,6 +430,7 @@ class Solution34 {
         String p = "7";
         System.out.println(solution34.solution(t, p));
     }
+
     public int solution(String t, String p) {
         int answer = 0;
         int length = t.length() - p.length() + 1;
@@ -442,6 +457,7 @@ class Solution35 {
         int[] arr2 = {30, 1, 21, 17, 28};
         System.out.println(Arrays.toString(solution35.solution(n, arr1, arr2)));
     }
+
     public String[] solution(int n, int[] arr1, int[] arr2) {
         String[] answer = {};
         boolean[][] result = new boolean[n][n];
@@ -460,6 +476,24 @@ class Solution35 {
         }
 
         return result;
+    }
+}
+
+class Solution36 {
+    public static void main(String[] args) {
+        Solution36 solution36 = new Solution36();
+        String s = "one4seveneight";
+        System.out.println(solution36.solution(s));
+    }
+
+    public int solution(String s) {
+        int answer;
+        String[] arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        for (int i = 0; i < 10; i++) {
+            s = s.replace(arr[i], Integer.toString(i));
+        }
+        answer = Integer.parseInt(s);
+        return answer;
     }
 }
 
