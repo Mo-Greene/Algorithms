@@ -1,9 +1,6 @@
 package problem.programmers.level1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 class Solution37 {
     public static void main(String[] args) {
@@ -38,8 +35,6 @@ class Solution38 {
             List<Integer> arrList = new ArrayList<>();
             start = commands[i][0];
             end = commands[i][1];
-            System.out.println("start : " + start);
-            System.out.println("end : " + end);
 
             //array[start - 1] 부터 array[end - 1] 까지 넣자 어디에? arrList 에
             for (int j = start - 1; j < end; j++) {
@@ -59,5 +54,30 @@ class Solution38 {
     }
 }
 
+class Solution39 {
+    public static void main(String[] args) {
+        Solution39 solution39 = new Solution39();
+        int[] numbers = {5,0,2,7};
+        System.out.println(Arrays.toString(solution39.solution(numbers)));
+    }
+    public int[] solution(int[] numbers) {
+        Arrays.sort(numbers);
+
+        Set<Integer> numSet = new HashSet<>();
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                numSet.add(numbers[i] + numbers[j]);
+            }
+        }
+
+        int[] answer = new int[numSet.size()];
+        List<Integer> numList = new ArrayList<>(numSet);
+        for (int i = 0; i < numList.size(); i++) {
+            answer[i] = numList.get(i);
+        }
+        Arrays.sort(answer);
+        return answer;
+    }
+}
 public class page3 {
 }
