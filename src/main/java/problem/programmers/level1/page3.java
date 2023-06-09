@@ -79,5 +79,19 @@ class Solution39 {
         return answer;
     }
 }
+
+class Solution40 {
+    public static void main(String[] args) {
+        Solution40 solution40 = new Solution40();
+        String s = "foobar";
+        System.out.println(Arrays.toString(solution40.solution(s)));
+    }
+
+    public int[] solution(String s) {
+        int[] answer = {};
+        return answer;
+    }
+}
+
 public class page3 {
 }
